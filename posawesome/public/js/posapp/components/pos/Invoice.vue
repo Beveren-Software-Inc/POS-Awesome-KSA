@@ -1430,6 +1430,18 @@ export default {
       doc.posa_offers = this.posa_offers;
       doc.posa_coupons = this.posa_coupons;
       doc.tax_id = this.customer_info.tax_id;
+      // reset / sync contact fields with current customer to avoid stale contact from previous customer
+      if (this.customer_info) {
+        doc.contact_person = null;
+        doc.contact_display = null;
+        doc.contact_email = this.customer_info.email_id || null;
+        doc.contact_mobile = this.customer_info.mobile_no || null;
+      } else {
+        doc.contact_person = null;
+        doc.contact_display = null;
+        doc.contact_email = null;
+        doc.contact_mobile = null;
+      }
       doc.posa_delivery_charges = this.selected_delivery_charge.name;
       doc.posa_delivery_charges_rate = this.delivery_charges_rate || 0;
       doc.posting_date = this.posting_date;
