@@ -1442,6 +1442,9 @@ export default {
         doc.contact_email = null;
         doc.contact_mobile = null;
       }
+      // reset billing address so it can't belong to a previous customer
+      doc.customer_address = null;
+      doc.address_display = null;
       doc.posa_delivery_charges = this.selected_delivery_charge.name;
       doc.posa_delivery_charges_rate = this.delivery_charges_rate || 0;
       doc.posting_date = this.posting_date;
