@@ -1449,6 +1449,8 @@ export default {
       doc.posa_delivery_charges_rate = this.delivery_charges_rate || 0;
       doc.posting_date = this.posting_date;
       doc.shipping_rule = this.shipping_rule;
+      // Use POS Profile's Update Stock so inventory is updated on submit when enabled
+      doc.update_stock = 1;
 
       doc.custom_returned_item_note  = this.returned_item_note || null;
       return doc;
